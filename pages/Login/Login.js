@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Alert, ScrollView, Text, View} from 'react-native';
 import style from './Login.style';
 import {Formik} from 'formik';
@@ -15,7 +15,6 @@ const Login = ({navigation}) => {
       .signInWithEmailAndPassword(formValues.username, formValues.password)
       .then(() => {
         console.log('ok');
-        navigation.navigate('RoomStacks');
       })
       .catch(err => {
         Alert.alert(err.message);
@@ -26,6 +25,11 @@ const Login = ({navigation}) => {
     username: '',
     password: '',
   };
+
+  useEffect(() => {
+    console.log(auth().currentUser);
+  }, []);
+
   return (
     <ScrollView style={style.main}>
       <View style={style.headerView}>

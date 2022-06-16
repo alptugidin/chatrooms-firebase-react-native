@@ -31,36 +31,23 @@ const Rooms = ({navigation}) => {
   }, []);
 
   const createRoom = lang => {
-    const newRef = db().ref('rooms/').push();
-    newRef
-      .set(lang)
-      .then(() => {
-        setModalVisible(false);
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    console.log(lang);
+    db().ref('rooms').child(lang).set('messages');
+    // const newReferance = db().ref('rooms/').push();
+    // newReferance
+    //   .set('ss')
+    //   .then(() => {
+    //     console.log('ok');
+    //     setModalVisible(false);
+    //   })
+    //   .catch(err => {
+    //     console.log('ERROR: ' + err);
+    //   });
   };
 
   const openModal = () => {
     setModalVisible(true);
   };
-
-  useEffect(() => {
-    // console.log('ok');
-    // const referance = db().ref('rooms');
-    // referance.once('value').then(snapshot => {
-    //   const data = snapshot.val();
-    //   console.log(Object.keys(data));
-    //   setRooms(Object.keys(data));
-    // });
-    //
-    // db()
-    //   .ref('rooms/')
-    //   .on('value', snapshot => {
-    //     setRooms(Object.keys(snapshot.val()));
-    //   });
-  }, []);
 
   return (
     <View style={style.main}>
