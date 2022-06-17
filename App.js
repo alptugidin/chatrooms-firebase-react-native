@@ -47,7 +47,14 @@ const RoomStacks = () => {
           ),
         }}
       />
-      <Stack.Screen name="Room" component={Room} />
+      <Stack.Screen
+        name="Room"
+        component={Room}
+        options={({route}) => ({
+          title: route.params + ' Room',
+          headerTintColor: colors.orange400,
+        })}
+      />
     </Stack.Navigator>
   );
 };

@@ -1,48 +1,25 @@
 import React from 'react';
-import {Text, View, StyleSheet} from 'react-native';
-import {colors} from '../../styles/colors';
+import {Text, View} from 'react-native';
+import style from './Popup.style';
 
-const Popup = ({user, message, time}) => {
+const Popup = ({user, message, time, currentUser}) => {
+  const days = ['Sun', 'Mon', 'Tue', 'Wen', 'Thu', 'Fri', 'Sat'];
+  const day = days[new Date(time).getDay()];
+  const from = currentUser === user ? 'send' : 'receive';
+  const timeStamp = day + ' ' + new Date(time).toLocaleTimeString();
   return (
-    <View style={style.main}>
-      <View style={style.infoView}>
-        <Text style={style.name}>{user}</Text>
-        <Text style={style.time}>{time}</Text>
+    <View style={style[from].main}>
+      <View style={style[from].infoView}>
+        <Text style={style[from].name}>~{user}~</Text>
       </View>
-      <View style={style.messageView}>
-        <Text style={style.message}>{message}</Text>
+      <View style={style[from].messageView}>
+        <Text style={style[from].message}>{message}</Text>
+      </View>
+      <View style={style[from].timeView}>
+        <Text style={style[from].time}>{timeStamp}</Text>
       </View>
     </View>
   );
 };
-
-const style = StyleSheet.create({
-  main: {
-    backgroundColor: 'white',
-    borderRadius: 10,
-    padding: 10,
-    marginTop: 10,
-  },
-  infoView: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-  name: {
-    fontSize: 17,
-  },
-
-  time: {
-    fontSize: 15,
-    fontStyle: 'italic',
-  },
-
-  message: {
-    fontSize: 17,
-    color: colors.gray600,
-  },
-  messageView: {
-    paddingVertical: 10,
-  },
-});
 
 export default Popup;

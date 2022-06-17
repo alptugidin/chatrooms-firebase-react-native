@@ -6,6 +6,9 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 const SendMessage = ({onPress}) => {
   const [input, setInput] = useState('');
   const handlePress = () => {
+    if (input === '') {
+      return false;
+    }
     onPress(input);
     setInput('');
   };

@@ -20,6 +20,7 @@ export const style = StyleSheet.create({
     backgroundColor: 'white',
     width: '90%',
     fontSize: 16,
+    color: colors.gray600,
   },
 
   parentMain: {

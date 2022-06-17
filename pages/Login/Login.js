@@ -26,10 +26,6 @@ const Login = ({navigation}) => {
     password: '',
   };
 
-  useEffect(() => {
-    console.log(auth().currentUser);
-  }, []);
-
   return (
     <ScrollView style={style.main}>
       <View style={style.headerView}>
@@ -40,7 +36,7 @@ const Login = ({navigation}) => {
           <>
             <View style={style.inputView}>
               <Input
-                placeholder="User Name..."
+                placeholder="Mail..."
                 value={values.username}
                 onType={handleChange('username')}
               />
@@ -51,9 +47,9 @@ const Login = ({navigation}) => {
               />
             </View>
             <View style={style.buttonView}>
-              <CustomButton title="Giriş Yap" onPress={handleSubmit} />
+              <CustomButton title="Login" onPress={handleSubmit} />
               <CustomButton
-                title="Kayıt Ol"
+                title="Sign up"
                 type="secondary"
                 onPress={toRegister}
               />

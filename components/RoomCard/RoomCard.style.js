@@ -5,9 +5,9 @@ export const style = StyleSheet.create({
   main: {
     width: 180,
     height: 180,
-    marginVertical: 8,
+    marginVertical: 5,
     borderWidth: 1,
-    backgroundColor: 'white',
+    backgroundColor: colors.gray50,
     borderRadius: 10,
     borderBottomWidth: 1,
     borderColor: colors.gray200,

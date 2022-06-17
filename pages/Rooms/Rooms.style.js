@@ -5,9 +5,8 @@ export const style = StyleSheet.create({
   main: {
     flex: 1,
     backgroundColor: 'white',
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'space-evenly',
+    justifyContent: 'space-around',
+    paddingTop: 5,
   },
 
   bg: {
